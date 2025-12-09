@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – The MindHouse | Dr. Aakriti Jha</title>
+  <meta name="description" content="Contact The MindHouse – Advanced Behavioral Clinic in Memnagar, Ahmedabad. Appointment requests and contact details for Dr. Aakriti Jha." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo-group">
+        <img src="assets/tmh-logo.png" alt="The MindHouse logo" class="logo-img" />
+        <div class="logo-text">
+          <span class="logo-main">The MindHouse</span>
+          <span class="logo-sub">Advanced Behavioral Clinic</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container narrow">
+        <h1>Contact &amp; Appointments</h1>
+        <p>
+          Please use the form below to share your details and preferred appointment time. The clinic team will get back to you to confirm your slot.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+        <div class="contact-info">
+          <h2>Clinic Details</h2>
+          <p class="clinic-name">The MindHouse – Advanced Behavioral Clinic</p>
+
+          <p><strong>Address</strong><br />
+            118, B Block, 1st Floor, Aryan Workspace 3 (AWS 3),<br />
+            Opp. Manav Mandir Road, Memnagar,<br />
+            Ahmedabad – 380 052
+          </p>
+
+          <p><strong>Timings</strong><br />
+            Mon – Sat: 4:00 PM – 8:00 PM<br />
+            Mornings &amp; Sundays by appointment
+          </p>
+
+          <p><strong>Phone / WhatsApp</strong><br />
+            <a href="tel:+919925792719">+91 99257 92719</a>
+          </p>
+
+          <p><strong>Email</strong><br />
+            <a href="mailto:draakritijha@gmail.com">draakritijha@gmail.com</a>
+          </p>
+
+          <p><strong>Instagram</strong><br />
+            <!-- Update this URL to your real Instagram handle -->
+            <a href="https://www.instagram.com/brainbloombydr.aak" target="_blank" rel="noopener">
+              @brainbloombydr.aak
+            </a>
+          </p>
+
+          <a href="https://maps.app.goo.gl/5kyWLg5NfCHMz3Me6" target="_blank" rel="noopener" class="btn ghost small">
+            View on Google Maps
+          </a>
+        </div>
+
+        <div class="contact-form-wrapper" id="appointment-form">
+          <h2>Appointment Request Form</h2>
+
+          <!--
+            NOTE:
+            For a purely static site, you can:
+            1) Use a service like Formspree / Getform and replace the 'action' URL below, OR
+            2) Change 'action' to 'mailto:draakritijha@gmail.com' (less reliable UX).
+
+            Example Formspree endpoint: https://formspree.io/f/your-form-id
+          -->
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/your-form-id"
+            method="POST"
+          >
+            <div class="form-row">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <div class="form-row">
+              <label for="preferred-date">Preferred Date / Time</label>
+              <input type="text" id="preferred-date" name="preferred_date" placeholder="e.g., Coming Friday after 5 PM" />
+            </div>
+
+            <div class="form-row">
+              <label for="message">Reason for visit / concerns (optional)</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <p class="form-note">
+              This form is for non-emergency appointment requests only. In case of emergency, please contact your local
+              emergency services.
+            </p>
+
+            <button type="submit" class="btn primary">Submit request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> The MindHouse – Dr. Aakriti Jha. All rights reserved.</p>
+      <p class="footer-small">
+        This website does not provide emergency services. In case of emergency, please contact your local emergency number.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
