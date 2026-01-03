@@ -31,7 +31,7 @@
       <div class="container narrow">
         <h1>About The MindHouse &amp; Dr. Aakriti Jha</h1>
         <p>
-          The MindHouse is a dedicated mental health clinic in Memnagar, Ahmedabad, offering thoughtful, individualized
+          Led by Dr. Aakriti Jha, The MindHouse is a dedicated mental health clinic in Memnagar, Ahmedabad, offering thoughtful, individualized
           care for children, adolescents, and adults.
         </p>
       </div>
@@ -39,6 +39,29 @@
 
     <section class="section">
       <div class="container narrow two-col">
+          <!-- IMAGE SLIDER -->
+          <div class="image-slider">
+
+            <div class="slide">
+              <img src="images/drakj1.png" alt="Dr Aakriti Jha" />
+            </div>
+          
+            <div class="slide">
+              <img src="images/drakj2.png" alt="Dr Aakriti Jha receiving accolades" />
+              <p class="image-caption">
+                Dr Aakriti Jha receiving accolades from the Chief Minister of Gujarat
+              </p>
+            </div>
+          
+            <div class="slide">
+              <img src="images/drakj3.png" alt="Dr Aakriti Jha at a mental health conference" />
+              <p class="image-caption">
+                Dr Aakriti Jha at a mental health conference
+              </p>
+            </div>
+          
+          </div>
+          
         <div>
           <h2>Dr. Aakriti Jha</h2>
           <p class="big-text">
@@ -67,51 +90,116 @@
       </div>
     </section>
 
-    <section class="section muted">
+    <section class="section muted"  id="about-clinic" >
       <div class="container narrow">
         <h2>The MindHouse – Advanced Behavioral Clinic</h2>
         <p>
-          The clinic offers a calm, confidential space for consultation and therapy. Special focus areas include:
+          The clinic offers a calm, confidential space for consultation and therapy.
         </p>
-        <div class="grid three">
-          <div class="card">
-            <h3>Child &amp; Adolescent</h3>
-            <p>
-              Learning difficulties, attention concerns, behavioral and emotional issues, school refusal, anxiety and mood
-              difficulties in young people.
-            </p>
+
+        <div class="clinic-slider-wrapper">
+
+          <button class="slider-btn prev" aria-label="Previous image">
+            &#10094;
+          </button>
+        
+          <div class="clinic-slider">
+            <img src="images/clinic1.png" alt="The MindHouse reception area" class="lightbox-img" />
+            <img src="images/clinic2.png" alt="Consultation room at The MindHouse" class="lightbox-img" />
+            <img src="images/clinic3.png" alt="Therapy room at The MindHouse" class="lightbox-img" />
           </div>
-          <div class="card">
-            <h3>Women's Mental Health</h3>
-            <p>
-              Mood and anxiety concerns across the life span, perinatal mental health, stress, burnout and role-related
-              challenges.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Psychotherapy</h3>
-            <p>
-              REBT-informed therapy and counseling for stress, anxiety, mood difficulties and interpersonal challenges in
-              adolescents and adults.
-            </p>
-          </div>
+        
+          <button class="slider-btn next" aria-label="Next image">
+            &#10095;
+          </button>
+        
         </div>
+
+        <p>
+          Some focus areas of the clinic include the following:
+        </p>
+      
+        <div class="card-slider-wrapper">
+
+          <button class="slider-btn prev" aria-label="Previous focus area">
+            &#10094;
+          </button>
+        
+          <div class="card-slider">
+            <div class="card">
+              <h3>Child &amp; Adolescent</h3>
+              <p>
+                Learning difficulties, attention concerns, behavioral and emotional issues,
+                school refusal, anxiety and mood difficulties in young people.
+              </p>
+            </div>
+        
+            <div class="card">
+              <h3>Women's Mental Health</h3>
+              <p>
+                Mood and anxiety concerns across the life span, perinatal mental health,
+                stress, burnout and role-related challenges.
+              </p>
+            </div>
+        
+            <div class="card">
+              <h3>Psychotherapy</h3>
+              <p>
+                REBT-informed therapy and counseling for stress, anxiety, mood difficulties
+                and interpersonal challenges in adolescents and adults.
+              </p>
+            </div>
+        
+            <!-- ADD MORE CARDS EASILY -->
+            <div class="card">
+              <h3>Adult Psychiatry</h3>
+              <p>
+                Depression, anxiety disorders, OCD, bipolar disorder and stress-related conditions.
+              </p>
+            </div>
+        
+            <div class="card">
+              <h3>Neurodevelopmental Disorders</h3>
+              <p>
+                ADHD, autism spectrum conditions, learning disorders and behavioral concerns.
+              </p>
+            </div>
+          </div>
+        
+          <button class="slider-btn next" aria-label="Next focus area">
+            &#10095;
+          </button>
+        
+        </div>
+        
         <div class="center mt-lg">
           <a href="contact.html#appointment-form" class="btn primary">Book an appointment</a>
         </div>
       </div>
     </section>
+    
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> The MindHouse – Dr. Aakriti Jha. All rights reserved.</p>
       <p class="footer-small">
-        This website does not provide emergency services. In case of emergency, please contact your local emergency number.
+        This website does not provide emergency services. In case of emergency, please contact your local emergency number 108.
       </p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js"> </script>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-nav prev" aria-label="Previous image">&#10094;</button>
+  
+    <img class="lightbox-content" id="lightbox-img" />
+  
+    <button class="lightbox-nav next" aria-label="Next image">&#10095;</button>
+  
+    <span class="lightbox-close">&times;</span>
+  </div>
+  
 </body>
 </html>
