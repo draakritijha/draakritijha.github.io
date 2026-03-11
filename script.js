@@ -86,23 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('inaugurationModal');
-  const closeBtn = document.querySelector('.inauguration-close');
-
-  // Safety check (prevents crashes on other pages)
-  if (!modal) return;
-
-  if (!localStorage.getItem('inaugurationSeen')) {
-    modal.style.display = 'flex';
-  }
-
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-    localStorage.setItem('inaugurationSeen', 'true');
-  });
-});
-
 
 
 
