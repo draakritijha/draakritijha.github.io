@@ -87,6 +87,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
 
+  lucide.createIcons();
 
+  document.querySelectorAll(".service-card").forEach(card => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("active");
+    });
+  });
 
+});
+
+const img = document.querySelector(".clickable-image");
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const closeBtn = document.querySelector(".close-modal");
+
+img.onclick = function () {
+  modal.style.display = "block";
+  modalImg.src = this.src;
+};
+
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
+
+modal.onclick = function (e) {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+};

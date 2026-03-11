@@ -23,6 +23,7 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="appointment.html" class="nav-link">Appointment</a>
       </nav>
     </div>
   </header>
@@ -30,100 +31,65 @@
   <main>
     <section class="page-hero">
       <div class="container narrow">
-        <h1>Contact &amp; Appointments</h1>
+        <h1>Contact Us</h1>
         <p>
-          Please use the form below to share your details and preferred appointment time. The clinic team will get back to you to confirm your slot.
+          To schedule an appointment via phone or for any other questions, call at the phone number below. For web / email appointments <a href="appointment.html" style="color: rgb(210, 246, 125); text-decoration: underline;">click here</a>
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container contact-layout">
+      <div class="container contact-layout-ct">
+
         <div class="contact-info">
           <h2>Clinic Details</h2>
           <p class="clinic-name">The MindHouse – Advanced Behavioral Clinic</p>
-
+      
           <p><strong>Address</strong><br />
             118, B Block, 1st Floor, Aryan Workspace 3 (AWS 3),<br />
             Opp. Manav Mandir Road, Memnagar,<br />
             Ahmedabad – 380 052
           </p>
-
-          <p><strong>Timings</strong>
-            <strong>Monday – Saturday </strong> <br />
+      
+          <p><strong>Timings</strong><br />
+            <strong>Monday – Saturday</strong><br />
             Mornings : 10:00 AM - 2:00 PM <br />
-            Evenings : 4:00 PM – 8:00 PM <br />
+            Evenings : 4:00 PM – 8:00 PM
           </p>
-
+      
           <p><strong>Phone / WhatsApp</strong><br />
             <a href="tel:+919925792719">+91 99257 92719</a>
           </p>
-
+      
           <p><strong>Email</strong><br />
             <a href="mailto:draakritijha@gmail.com">draakritijha@gmail.com</a>
           </p>
-
+      
           <p><strong>Instagram</strong><br />
-            <!-- Update this URL to your real Instagram handle -->
-            <a href="https://www.instagram.com/themindhousebydraakriti" target="_blank" rel="noopener">
+            <a href="https://www.instagram.com/themindhousebydraakriti" target="_blank">
               @themindhousebydraakriti
             </a>
           </p>
-
-          <a href="https://maps.app.goo.gl/sUQUBeGzhjcHudeT8" target="_blank" rel="noopener" class="btn ghost small">
+      
+          <a href="https://maps.app.goo.gl/sUQUBeGzhjcHudeT8" target="_blank" class="btn ghost small">
             View on Google Maps
           </a>
         </div>
-
-        <div class="contact-form-wrapper" id="appointment-form">
-          <h2>Appointment Request Form</h2>
-
-          <!--
-            NOTE:
-            For a purely static site, you can:
-            1) Use a service like Formspree / Getform and replace the 'action' URL below, OR
-            2) Change 'action' to 'mailto:draakritijha@gmail.com' (less reliable UX).
-
-            Example Formspree endpoint: https://formspree.io/f/your-form-id
-          -->
-          <form
-            class="contact-form"
-            method="POST"
-            id="contact-form-submit"
+      
+        <!-- NEW IMAGE BLOCK -->
+        <div class="contact-poster">
+          <img 
+            src="services-poster.jpeg" 
+            alt="MindHouse Services Poster"
+            class="clickable-image"
           >
-            <div class="form-row">
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-
-            <div class="form-row">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <div class="form-row">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-
-            <div class="form-row">
-              <label for="preferred-date">Preferred Date / Time</label>
-              <input type="text" id="preferred-date" name="preferred_date" placeholder="e.g., Coming Friday after 5 PM" />
-            </div>
-
-            <div class="form-row">
-              <label for="message">Reason for visit / concerns (optional)</label>
-              <textarea id="message" name="message" rows="4"></textarea>
-            </div>
-
-            <p class="form-note">
-              This form is for non-emergency appointment requests only. In case of emergency, please contact your local
-              emergency services.
-            </p>
-
-            <button type="submit" class="btn primary">Submit request</button>
-          </form>
         </div>
+        
+        <div id="image-modal" class="image-modal">
+          <span class="close-modal">&times;</span>
+          <img class="modal-content" id="modal-img">
+        </div>
+      
       </div>
     </section>
   </main>
@@ -136,41 +102,6 @@
       </p>
     </div>
   </footer>
-  <script>
-    const form = document.getElementById("contact-form-submit");
-  
-    form.addEventListener("submit", async function (event) {
-      const button = form.querySelector("button");
-
-      button.disabled = true;
-      button.innerText = "Submitting...";
-
-      event.preventDefault();
-  
-      const formData = new FormData(form);
-  
-      try {
-        const response = await fetch("https://formspree.io/f/mbdakewa", {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        });
-  
-        if (response.ok) {
-          form.reset();
-  
-          // redirect to your custom success page
-          window.location.href = "./success.html";
-        } else {
-          alert("There was an error submitting the form. Please try again.");
-        }
-      } catch (error) {
-        alert("Network error. Please try again.");
-      }
-    });
-  </script>
   
   <script src="script.js"></script>
 </body>
