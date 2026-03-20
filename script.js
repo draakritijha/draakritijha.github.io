@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = document.querySelector('.lightbox-close');
-  const nextBtn = document.querySelector('.lightbox-nav.next');
-  const prevBtn = document.querySelector('.lightbox-nav.prev');
+  const prevBtn = document.querySelector('[aria-label="Prev image"]');
+  const nextBtn = document.querySelector('[aria-label="Next image"]');
 
   const images = Array.from(document.querySelectorAll('.lightbox-img'));
   let currentIndex = 0;
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
     img.addEventListener('click', () => openLightbox(index));
   });
 
-  nextBtn.addEventListener('click', showNext);
   prevBtn.addEventListener('click', showPrev);
+  nextBtn.addEventListener('click', showNext);
 
   closeBtn.addEventListener('click', () => {
     lightbox.style.display = 'none';
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-const img = document.querySelector(".clickable-image");
+const img = document.getElementById("clickable-image");
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("modal-img");
 const closeBtn = document.querySelector(".close-modal");

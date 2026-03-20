@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Health & Well-being</title>
+
+<!-- Your existing stylesheet (loads first) -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Slideshow page styles (loads second, no conflicts) -->
+<!-- <link rel="stylesheet" href="mental-health-slideshow.css"> -->
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo-group">
+        <img src="./tmh-logo.png" alt="The MindHouse logo" class="logo-img" />
+        <div class="logo-text">
+          <span class="logo-main">The MindHouse</span>
+          <span class="logo-sub">Advanced Behavioral Clinic</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="appointment.html" class="nav-link">Appointment</a>
+        <a href="mental-health-guides.html" class="nav-link active">Mental Health Guide</a>
+      </nav>
+    </div>
+  </header>
+
+<div class="mh-page-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="mh-sidebar">
+
+    <p class="mh-eyebrow">Dr Aakriti Jha's Wellness Series</p>
+    <h1>Mental Health<br><em>And Well-being</em></h1>
+    <div class="mh-divider"></div>
+
+    <p class="mh-sidebar-intro">
+      Your mental health shapes how you think, feel, and navigate daily life.
+      This guide brings together evidence-based insights to help you understand,
+      recognise, and nurture your well-being.
+    </p>
+
+    <!-- STAT PILLS -->
+    <div class="mh-stats">
+      <div class="mh-stat">
+        <span class="mh-stat-num">1 in 5</span>
+        <span class="mh-stat-label">adults experience a mental health condition each year</span>
+      </div>
+      <div class="mh-stat">
+        <span class="mh-stat-num">50%</span>
+        <span class="mh-stat-label">of conditions begin by age 14 — early awareness matters</span>
+      </div>
+    </div>
+
+    <div class="mh-divider"></div>
+
+    <!-- WHAT YOU'LL FIND -->
+    <p class="mh-section-label">What you'll find here</p>
+    <ul class="mh-feature-list">
+      <li>
+        
+        <div>
+          <strong>Specially curated topics</strong>
+          <span>from stress and anxiety to mindfulness and recovery</span>
+        </div>
+      </li>
+      <li>
+       
+        <div>
+          <strong>Visual slide decks</strong>
+          <span>click any tile to explore a full illustrated guide</span>
+        </div>
+      </li>
+      <li>
+     
+        <div>
+          <strong>Practical strategies</strong>
+          <span>grounded in psychology and real-world care</span>
+        </div>
+      </li>
+      <li>
+        
+        <div>
+          <strong>Recognising warning signs</strong>
+          <span>for yourself and those around you</span>
+        </div>
+      </li>
+    </ul>
+
+  </aside>
+
+  <!-- TILE GRID -->
+  <main class="mh-grid-area" id="tileGrid"></main>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="mh-lightbox" id="mhLightbox" role="dialog" aria-modal="true">
+  <div class="mh-lb-inner">
+    <button class="mh-lb-close" id="mhLbClose" aria-label="Close">&#10005;</button>
+    <div style="position:relative; overflow:hidden;">
+      <div class="mh-lb-slides" id="mhLbSlides"></div>
+      <button class="mh-lb-nav prev" id="mhLbPrev" aria-label="Previous image">&#8249;</button>
+      <button class="mh-lb-nav next" id="mhLbNext" aria-label="Next image">&#8250;</button>
+    </div>
+    <div class="mh-lb-dots" id="mhLbDots"></div>
+    <div class="mh-lb-info">
+      <h2 id="mhLbTitle"></h2>
+      <p id="mhLbDesc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────────────────
+// Replace Unsplash URLs with your own image paths e.g. "images/slide1.jpg"
+const tiles = [
+  {
+    title: "Awareness & Understanding of <em>Eating Disorders </em>",
+    desc: "Understanding different eating disorders, their causes and how they affect our daily lives",
+    slides: [
+      { bg: "images/mental-health-guide/eating-disorders/eating-1.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-2.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-3.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-4.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-5.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-6.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-7.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-8.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-9.jpeg", caption: "" },
+      { bg: "images/mental-health-guide/eating-disorders/eating-.jpeg", caption: "" },
+    ]
+  },
+  {
+    title: "Understanding <em>Stress</em>",
+    desc: "Types, causes, and the science of chronic stress",
+    slides: [
+      { bg: "https://images.unsplash.com/photo-1541199249251-f713e6145474?w=900&q=80", caption: "Types of Stress" },
+      { bg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80", caption: "Physical Symptoms" },
+      { bg: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80", caption: "Finding Balance" },
+    ]
+  },
+  {
+    title: "Mental Health <em>And Well-Being</em>",
+    desc: "Raising awareness and promoting healthy work-life balance",
+    slides: [
+      { bg: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=900&q=80", caption: "Daily Mindfulness" },
+      { bg: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=900&q=80", caption: "Healthy Habits" },
+      { bg: "https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=900&q=80", caption: "Community Support" },
+    ]
+  },
+  {
+    title: "Recognizing <em>Warning Signs</em>",
+    desc: "Behavioral, emotional, physical and cognitive changes",
+    slides: [
+      { bg: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=900&q=80", caption: "Behavioral Changes" },
+      { bg: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?w=900&q=80", caption: "Emotional Shifts" },
+      { bg: "https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=900&q=80", caption: "Cognitive Signs" },
+    ]
+  },
+  {
+    title: "Mindfulness <em>&amp; Meditation</em>",
+    desc: "Practices to anchor yourself in the present moment",
+    slides: [
+      { bg: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80", caption: "Breathing Techniques" },
+      { bg: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&q=80", caption: "Guided Meditation" },
+      { bg: "https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?w=900&q=80", caption: "Body Scan Practice" },
+    ]
+  },
+  {
+    title: "Mental Health <em>Image &amp; Text</em>",
+    desc: "Stories, statistics, and paths to recovery",
+    slides: [
+      { bg: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=900&q=80", caption: "Seeking Help" },
+      { bg: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=900&q=80", caption: "Support Networks" },
+      { bg: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=80", caption: "Professional Care" },
+    ]
+  },
+];
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+const tileState = tiles.map(() => ({ current: 0 }));
+let lbTileIdx = 0, lbSlideIdx = 0;
+
+// ── BUILD TILES ───────────────────────────────────────────────────────────────
+const grid = document.getElementById('tileGrid');
+
+tiles.forEach((tile, ti) => {
+  const el = document.createElement('div');
+  el.className = 'mh-tile';
+  el.innerHTML = `
+    <div class="mh-slides" id="mh-slides-${ti}">
+      ${tile.slides.map((s) => `
+        <div class="mh-slide">
+          <div class="mh-slide-bg" style="background-image:url('${s.bg}')"></div>
+          <div class="mh-slide-label">
+            <h3>${tile.title}</h3>
+            <p>${s.caption}</p>
+          </div>
+        </div>`).join('')}
+    </div>
+    <div class="mh-dots" id="mh-dots-${ti}">
+      ${tile.slides.map((_, si) =>
+        `<span class="mh-dot${si === 0 ? ' active' : ''}" data-ti="${ti}" data-si="${si}"></span>`
+      ).join('')}
+    </div>
+    <button class="mh-nav-btn prev" data-ti="${ti}" data-dir="-1" aria-label="Previous image">&#8249;</button>
+    <button class="mh-nav-btn next" data-ti="${ti}" data-dir="1"  aria-label="Next image">&#8250;</button>
+  `;
+
+  el.addEventListener('click', (e) => {
+    if (e.target.closest('.mh-nav-btn')) return;
+    openLightbox(ti, tileState[ti].current);
+  });
+
+  grid.appendChild(el);
+});
+
+// ── TILE NAV ──────────────────────────────────────────────────────────────────
+grid.addEventListener('click', e => {
+  const btn = e.target.closest('.mh-nav-btn');
+  if (!btn) return;
+  e.stopPropagation();
+  const ti = +btn.dataset.ti, dir = +btn.dataset.dir;
+  tileState[ti].current = (tileState[ti].current + dir + tiles[ti].slides.length) % tiles[ti].slides.length;
+  updateTile(ti);
+});
+
+grid.addEventListener('click', e => {
+  const dot = e.target.closest('.mh-dot');
+  if (!dot) return;
+  e.stopPropagation();
+  tileState[+dot.dataset.ti].current = +dot.dataset.si;
+  updateTile(+dot.dataset.ti);
+});
+
+function updateTile(ti) {
+  const cur = tileState[ti].current;
+  document.getElementById(`mh-slides-${ti}`).style.transform = `translateX(-${cur * 100}%)`;
+  document.querySelectorAll(`#mh-dots-${ti} .mh-dot`).forEach((d, i) => d.classList.toggle('active', i === cur));
+}
+
+// Auto-advance
+setInterval(() => {
+  tiles.forEach((t, ti) => {
+    tileState[ti].current = (tileState[ti].current + 1) % t.slides.length;
+    updateTile(ti);
+  });
+}, 4000);
+
+// ── LIGHTBOX ──────────────────────────────────────────────────────────────────
+const lightbox   = document.getElementById('mhLightbox');
+const lbSlidesEl = document.getElementById('mhLbSlides');
+const lbDotsEl   = document.getElementById('mhLbDots');
+const lbTitle    = document.getElementById('mhLbTitle');
+const lbDesc     = document.getElementById('mhLbDesc');
+
+function openLightbox(ti, si) {
+  lbTileIdx = ti; lbSlideIdx = si;
+  const tile = tiles[ti];
+
+  lbSlidesEl.innerHTML = tile.slides.map(s =>
+    `<div class="mh-lb-slide" style="background-image:url('${s.bg}')"></div>`
+  ).join('');
+
+  lbDotsEl.innerHTML = tile.slides.map((_, i) =>
+    `<span class="mh-lb-dot${i === si ? ' active' : ''}" data-i="${i}"></span>`
+  ).join('');
+
+  lbTitle.innerHTML  = tile.title;
+  lbDesc.textContent = tile.desc;
+  lightbox.classList.add('open');
+  updateLightbox();
+}
+
+function updateLightbox() {
+  lbSlidesEl.style.transform = `translateX(-${lbSlideIdx * 100}%)`;
+  document.querySelectorAll('.mh-lb-dot').forEach((d, i) => d.classList.toggle('active', i === lbSlideIdx));
+}
+
+document.getElementById('mhLbClose').addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+
+document.getElementById('mhLbPrev').addEventListener('click', () => {
+  lbSlideIdx = (lbSlideIdx - 1 + tiles[lbTileIdx].slides.length) % tiles[lbTileIdx].slides.length;
+  updateLightbox();
+});
+
+document.getElementById('mhLbNext').addEventListener('click', () => {
+  lbSlideIdx = (lbSlideIdx + 1) % tiles[lbTileIdx].slides.length;
+  updateLightbox();
+});
+
+lbDotsEl.addEventListener('click', e => {
+  const dot = e.target.closest('.mh-lb-dot');
+  if (!dot) return;
+  lbSlideIdx = +dot.dataset.i;
+  updateLightbox();
+});
+
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') document.getElementById('mhLbNext').click();
+  if (e.key === 'ArrowLeft')  document.getElementById('mhLbPrev').click();
+  if (e.key === 'Escape')     lightbox.classList.remove('open');
+});
+</script>
+</body>
+</html>
